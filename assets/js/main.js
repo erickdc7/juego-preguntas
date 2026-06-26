@@ -1,116 +1,71 @@
 const questions = [
     {
-        question: "¿Cuál es mi animal favorito?",
+        question: "¿Cuál es el océano más grande del mundo?",
         answers: [
-            { text: "Perro 🐶", correct: true },
-            { text: "Gato 🐱", correct: false },
-            { text: "León 🦁", correct: false },
-            { text: "Delfín 🐬", correct: false }
+            { text: "Océano Atlántico", correct: false },
+            { text: "Océano Índico", correct: false },
+            { text: "Océano Pacífico", correct: true },
+            { text: "Océano Ártico", correct: false }
         ]
     },
     {
-        question: "¿Cuál es mi estación del año preferida?",
+        question: "¿Cuántos continentes hay en la Tierra?",
         answers: [
-            { text: "Primavera 🌸", correct: false },
-            { text: "Verano 🌞", correct: false },
-            { text: "Otoño 🍂", correct: false },
-            { text: "Invierno ☃️", correct: true }
+            { text: "5", correct: false },
+            { text: "6", correct: false },
+            { text: "7", correct: true },
+            { text: "8", correct: false }
         ]
     },
     {
-        question: "¿Cuál es mi película favorita?",
+        question: "¿Qué gas necesitan las plantas para realizar la fotosíntesis?",
         answers: [
-            { text: "Star Wars ⭐", correct: true },
-            { text: "Harry Potter 🧙‍♂️", correct: false },
-            { text: "Avengers 🦸‍♂️", correct: false },
-            { text: "El Señor de los Anillos 🧝‍♂️", correct: false }
+            { text: "Oxígeno", correct: false },
+            { text: "Nitrógeno", correct: false },
+            { text: "Dióxido de carbono", correct: true },
+            { text: "Hidrógeno", correct: false }
         ]
     },
     {
-        question: "¿Qué tipo de música prefiero?",
+        question: "¿Cuál es el río más largo del mundo?",
         answers: [
-            { text: "Pop 🎤", correct: false },
-            { text: "Rock 🎸", correct: true },
-            { text: "Jazz 🎷", correct: false },
-            { text: "Clásica 🎻", correct: false }
+            { text: "Río Amazonas", correct: true },
+            { text: "Río Nilo", correct: false },
+            { text: "Río Yangtsé", correct: false },
+            { text: "Río Misisipi", correct: false }
         ]
     },
     {
-        question: "¿Cuál es mi deporte favorito?",
+        question: "¿Cuál es el símbolo químico del oro?",
         answers: [
-            { text: "Fútbol ⚽", correct: true },
-            { text: "Baloncesto 🏀", correct: false },
-            { text: "Tenis 🎾", correct: false },
-            { text: "Natación 🏊‍♂️", correct: false }
+            { text: "Ag", correct: false },
+            { text: "Au", correct: true },
+            { text: "Fe", correct: false },
+            { text: "O", correct: false }
         ]
-    },
-    {
-        question: "¿Cuál es mi libro favorito?",
-        answers: [
-            { text: "El Principito 🤴", correct: false },
-            { text: "Cien años de soledad 📚", correct: false },
-            { text: "El Gran Gatsby 🎩", correct: true },
-            { text: "Crónica de una muerte anunciada ⚔️", correct: false }
-        ]
-    },
-    {
-        question: "¿Cuál es mi serie de televisión favorita?",
-        answers: [
-            { text: "Friends 👫", correct: false },
-            { text: "Game of Thrones 🐉", correct: false },
-            { text: "Stranger Things 🚲", correct: false },
-            { text: "The Office 📊", correct: true }
-        ]
-    },
-    {
-        question: "¿Qué instrumento musical me gustaría aprender a tocar?",
-        answers: [
-            { text: "Guitarra 🎸", correct: false },
-            { text: "Piano 🎹", correct: true },
-            { text: "Violín 🎻", correct: false },
-            { text: "Batería 🥁", correct: false }
-        ]
-    },
-    {
-        question: "¿Qué actividad me relaja más?",
-        answers: [
-            { text: "Leer 📖", correct: false },
-            { text: "Yoga 🧘‍♀️", correct: false },
-            { text: "Escuchar música 🎧", correct: false },
-            { text: "Dibujar ✏️", correct: true }
-        ]
-    },
-    {
-        question: "¿Qué tipo de película prefiero ver?",
-        answers: [
-            { text: "Comedia 🎬", correct: false },
-            { text: "Acción 💥", correct: true },
-            { text: "Drama 🎭", correct: false },
-            { text: "Ciencia ficción 👽", correct: false }
-        ]
-    },
+    }
 ];
 
 function showFinalScore() {
     const gameElement = document.getElementById('game');
+    const percentage = (score / questions.length) * 100;
+
     let message = "";
 
-    if (score <= 3) {
+    if (percentage < 60) {
         message = `
             <h2>😅 Necesitas practicar más.</h2>
             <p>Obtuviste ${score} de ${questions.length}.</p>
         `;
-    }
-    else if (score <= 7) {
+    } else if (percentage < 100) {
         message = `
             <h2>🙂 ¡Buen trabajo!</h2>
             <p>Obtuviste ${score} de ${questions.length}.</p>
         `;
-    }
-    else {
+    } else {
         message = `
             <h2>🏆 ¡Excelente!</h2>
-            <p>Obtuviste ${score} de ${questions.length}.</p>
+            <p>¡Respuesta perfecta! Obtuviste ${score} de ${questions.length}.</p>
         `;
     }
 
