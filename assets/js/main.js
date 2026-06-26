@@ -93,12 +93,25 @@ const questions = [
 
 function showFinalScore() {
     const gameElement = document.getElementById('game');
-    let message = ''; // Mensaje inicial
+    let message = "";
 
-    if (score <= 5) {
-        message = `<h2>Tu puntuación final es: ${score} de ${questions.length} 😢</h2>`; // Emoji triste
-    } else {
-        message = `<h2>Tu puntuación final es: ${score} de ${questions.length} 😄</h2>`; // Emoji feliz
+    if (score <= 3) {
+        message = `
+            <h2>😅 Necesitas practicar más.</h2>
+            <p>Obtuviste ${score} de ${questions.length}.</p>
+        `;
+    }
+    else if (score <= 7) {
+        message = `
+            <h2>🙂 ¡Buen trabajo!</h2>
+            <p>Obtuviste ${score} de ${questions.length}.</p>
+        `;
+    }
+    else {
+        message = `
+            <h2>🏆 ¡Excelente!</h2>
+            <p>Obtuviste ${score} de ${questions.length}.</p>
+        `;
     }
 
     gameElement.innerHTML = message;
